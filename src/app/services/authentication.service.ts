@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class AuthenticationService {
 constructor(private http:HttpClient) {}
 authenticateUser(data) {
-return this.http.post(` http://localhost:3000/auth/v1`,data)}
+return this.http.post(` http://localhost:3000/auth/v1/`,data)}
 setBearerToken(token) {
 return localStorage.setItem('bearerToken',token);}
 getBearerToken() {
