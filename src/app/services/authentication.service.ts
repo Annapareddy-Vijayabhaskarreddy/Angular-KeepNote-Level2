@@ -12,5 +12,8 @@ setBearerToken(token) {
 return localStorage.setItem('bearerToken',token);}
 getBearerToken() {
 return localStorage.getItem('bearerToken');}
-isUserAuthenticated(token): Promise<boolean> {return this.http.post('http://localhost:3000/auth/v1/isAuthenticated',{},{headers:new HttpHeaders().set('Authorization','Bearer ${token}')}).map((res)=> {return res['isAuthenticated']}).toPromise();}}
+isUserAuthenticated(token): Promise<boolean> {
+  return this.http.post('http://localhost:3000/auth/v1/isAuthenticated',{},
+{headers:new HttpHeaders().set('Authorization','Bearer ${token}')}).map((res)=> {
+  return res['isAuthenticated']}).toPromise();}}
 

@@ -11,20 +11,21 @@ import { RouterService } from '../services/router.service';
 export class LoginComponent {
   constructor(private service:AuthenticationService, private route:RouterService){}
   
-    username = new FormControl();
-    password = new FormControl();
+    username = new FormControl('');
+    password = new FormControl('');
     public submitMessage :any
     public loginForm = new FormGroup({
   username:this.username,
   password:this.password
 });
     loginSubmit() {
-      this.service.authenticateUser(this.loginForm).subscribe((data:any)=>{
+      this.service.authenticateUser(this.loginForm.value).subscribe((data:any)=>{
         this.service.setBearerToken(data.access_token);
-        this.route.routeToDashboard();
+        this.route.routeToDashboard();      
       },error=>{
         
          this.submitMessage=error.message='Unauthorized';
       });
     }
+  
 }
