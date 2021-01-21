@@ -22,8 +22,7 @@ export class LoginComponent {
       this.service.authenticateUser(this.loginForm.value).subscribe((data:any)=>{
         this.service.setBearerToken(data.access_token);
         this.route.routeToDashboard();      
-      },error=>{
-        
+      },error=>{     
          this.submitMessage=error.message='Unauthorized';
       });
     }

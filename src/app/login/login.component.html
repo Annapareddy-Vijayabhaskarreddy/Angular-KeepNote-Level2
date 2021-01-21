@@ -1,16 +1,16 @@
 <label class="error-message">{{submitMessage}}</label>
-<form [formGroup]="loginForm" >
-    <div class="form-group">
-    <div class="username">
+<form  >
+   <div [formGroup]="loginForm">
+    <div class="input-group mb-3">
         <label for="email" class="sr-only">Email</label>
-        <input type="email" formControlName="username" id="email" class="form-control" autocomplete="off" placeholder="Email address">
-    </div></div>
-    <div class="form-group">
-    <div class="password">
+        <input matInput  [formControl]="username"  class="username" autocomplete="off" placeholder="Email address">
+    </div>
+
+    <div class="input-group mb-3">
         <label for="password" class="sr-only">Password</label>
-        <input type="email" formControlName="password" id="password" class="form-control" autocomplete="off" placeholder="password">
-    </div></div>
-   <div class="input-group mb-3">
-       <button class="btn btn-secondary" (click)="loginSubmit()">Submit</button>
+        <input matInput  [formControl]="password"  class="password" autocomplete="off" placeholder="password">
+    </div>
+ 
+       <button mat-button type="submit" (click)="loginSubmit()">Submit</button>
    </div>
 </form>
